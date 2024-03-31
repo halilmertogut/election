@@ -1,5 +1,5 @@
 import React from 'react';
-import './ScrollingText.css'; // Assuming you will use plain CSS for keyframes animation
+import './ScrollingText.css';
 
 const ScrollingText = ({ text }) => {
   return (
