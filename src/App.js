@@ -4,6 +4,7 @@ import CandidateList from './CandidateList';
 import Footer from './Footer';
 import { useSpring, animated } from 'react-spring';
 import 'tailwindcss/tailwind.css'; // Assuming Tailwind CSS is setup
+import ScrollingText from './ScrollingText';
 
 function App() {
   const [ankaraData, setAnkaraData] = useState(null);
@@ -33,6 +34,26 @@ function App() {
   }, []);
   
 
+  function SpotifyPlaylist() {
+    return (
+      <div className="flex justify-center my-8">
+        <iframe
+          style={{ borderRadius: '12px' }}
+          src="https://open.spotify.com/embed/playlist/3W3glUaYem0ysXsZvMs1Yu?utm_source=generator&theme=0&autoplay=true"
+          width="100%"
+          height="380"
+          frameBorder="0"
+          allowFullScreen={true}
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          title="Spotify Playlist"
+          className="max-w-xl w-full" // Control the max-width and set width to full
+        ></iframe>
+      </div>
+    );
+  }
+  
+  
   // Animation for main content appearance
   const fadeIn = useSpring({ to: { opacity: 1 }, from: { opacity: 0 }, delay: 200 });
 
@@ -40,8 +61,12 @@ function App() {
     <animated.div style={fadeIn} className="min-h-screen flex flex-col relative">
       <header className="text-center p-5 bg-opacity-90 bg-slate-700 backdrop-filter backdrop-blur-md">
         <h1 className="text-4xl md:text-5xl font-bold font-montserrat">Oy <span className='text-white'>'Takip'</span> Etme Platformu </h1>
+        
       </header>
       <main className="flex-grow p-5">
+      <section className="my-10">
+      {/* More content */}
+    </section>
         {ankaraData && (
           <div className="mb-6 mt-10">
             <h2 className="text-4xl font-semibold mb-4 font-montserrat text-center mt-20">{ankaraData.name}</h2>
@@ -53,13 +78,17 @@ function App() {
         )}
         {istanbulData && (
           <div className="mb-6">
-            <h2 className="text-4xl font-semibold mb-4 font-montserrat text-center mt-20">{istanbulData.name}</h2>
+            <h2 className="text-4xl font-semibold mb-4 font-montserrat text-center mt-20 mb-20">{istanbulData.name}</h2>
             <div className="flex justify-center">
               <span className="inline-block w-40 h-1 rounded-full bg-gradient-to-r from-indigo-500 to-red-800"></span>
             </div>
             <CandidateList candidates={istanbulData.details} />
           </div>
         )}
+        <section>
+        <ScrollingText text="@hmertogut" />
+          <SpotifyPlaylist />
+        </section>
       </main>
       <Footer />
     </animated.div>
