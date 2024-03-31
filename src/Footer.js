@@ -64,7 +64,7 @@ const Footer = () => {
             </a>
           </div>
           <p className="text-sm md:text-base">
-            Designed by @hmertogut © {new Date().getFullYear()}
+            @hmertogut © {new Date().getFullYear()}
           </p>
         </div>
       </div>

@@ -24,8 +24,8 @@ const CandidateCard = ({ candidate, progressBarRef }) => {
       >
         <img src={getImageSrc(candidate.candidate.name)} alt={candidate.candidate.name + " Profile"} className="w-32 h-32 rounded-full object-cover mb-4"/>
         <h3 className="text-xl font-semibold">{candidate.candidate.name}</h3>
-        <p className="text-md">Party Name: {candidate.name}</p>
-        <p className="text-md text-red-500">Total Votes: {candidate.totalVote.toLocaleString()} ({candidate.totalVotePercent.toFixed(2)}%)</p>
+        <p className="text-md">Parti Adı: {candidate.name}</p>
+        <p className="text-md text-red-500">Toplam Oy: {candidate.totalVote.toLocaleString()} ({candidate.totalVotePercent.toFixed(2)}%)</p>
         <div className="w-full bg-gray-200 rounded-full overflow-hidden h-2.5">
           <div
             ref={progressBarRef}
