@@ -12,7 +12,7 @@ const CandidateCard = ({ candidate, progressBarRef }) => {
 
     const getImageSrc = (name) => {
       const formattedName = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, '_');
-      return `/candidates/${formattedName}.jpg`;
+      return require(`./candidates/${formattedName}.jpg`);
     };
   
     return (
