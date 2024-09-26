@@ -3,7 +3,7 @@ import axios from 'axios';
 import CandidateList from './CandidateList';
 import Footer from './Footer';
 import { useSpring, animated } from 'react-spring';
-import 'tailwindcss/tailwind.css'; // Assuming Tailwind CSS is setup
+import 'tailwindcss/tailwind.css';
 import ScrollingText from './ScrollingText';
 
 function App() {
@@ -23,13 +23,10 @@ function App() {
       }
     };
   
-    // Fetch results immediately on component mount
     fetchElectionResults();
   
-    // Set up polling every 60 seconds
     const interval = setInterval(fetchElectionResults, 30000);
   
-    // Clean up interval on component unmount
     return () => clearInterval(interval);
   }, []);
   
@@ -47,14 +44,13 @@ function App() {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
           title="Spotify Playlist"
-          className="max-w-xl w-full" // Control the max-width and set width to full
+          className="max-w-xl w-full"
         ></iframe>
       </div>
     );
   }
   
   
-  // Animation for main content appearance
   const fadeIn = useSpring({ to: { opacity: 1 }, from: { opacity: 0 }, delay: 200 });
 
   return (
@@ -65,7 +61,6 @@ function App() {
       </header>
       <main className="flex-grow p-5">
       <section className="my-10">
-      {/* More content */}
     </section>
         {ankaraData && (
           <div className="mb-6 mt-10">
